@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "wpe-build": "next start -p 8080"
+    "wpe-build": "next build"
   },
   "dependencies": {
     "@apollo/client": "^3.3.9",
