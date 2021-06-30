@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-  useNextUriInfo,
-  initializeNextServerSideProps,
-} from '@wpengine/headless';
-import { GetServerSidePropsContext } from 'next';
+  useUriInfo,
+  getNextStaticPaths,
+  getNextStaticProps,
+} from '@wpengine/headless/next';
+import { GetStaticPropsContext } from 'next';
 import Posts from '../lib/components/Posts';
 import Post from '../lib/components/Post';
 
 export default function Page() {
-  const pageInfo = useNextUriInfo();
+  const pageInfo = useUriInfo();
 
   if (!pageInfo) {
     return <></>;
@@ -21,6 +22,10 @@ export default function Page() {
   return <Post />;
 }
 
-export function getServerSideProps(context: GetServerSidePropsContext) {
-  return initializeNextServerSideProps(context);
+export function getStaticPaths() {
+  return getNextStaticPaths();
+}
+
+export function getStaticProps(context: GetStaticPropsContext) {
+  return getNextStaticProps(context);
 }

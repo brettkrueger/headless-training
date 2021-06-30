@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePost } from '@wpengine/headless';
+import { usePost } from '@wpengine/headless/next';
 
 export default function Post() {
   const post = usePost();
@@ -10,7 +10,7 @@ export default function Post() {
         <div>
           <div>
             <h5>{post.title}</h5>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: post.content ?? '',
               }}

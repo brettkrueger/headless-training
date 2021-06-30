@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppContext, AppInitialProps } from 'next/app';
-import { HeadlessProvider } from '@wpengine/headless';
+import { HeadlessProvider } from '@wpengine/headless/react';
 
 export default function App({
   Component,

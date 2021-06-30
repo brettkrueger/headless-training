@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { usePosts } from '@wpengine/headless';
+import { usePosts } from '@wpengine/headless/react';
 
 export default function Posts() {
   const posts = usePosts();
@@ -8,7 +8,7 @@ export default function Posts() {
   return (
     <div>
       {posts &&
-        posts.map((post) => (
+        posts.nodes.map((post) => (
           <div key={post.id} id={`post-${post.id}`}>
             <div>
               <Link href={post.uri}>
@@ -16,7 +16,7 @@ export default function Posts() {
                   <a href={post.uri}>{post.title}</a>
                 </h5>
               </Link>
-              <p
+              <div
                 dangerouslySetInnerHTML={{
                   __html: post.excerpt ?? '',
                 }}
